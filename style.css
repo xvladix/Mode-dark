@@ -1,0 +1,73 @@
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100vh;
+  }
+  .oscuro {
+    background-color: black;
+    color: blue
+  }
+  .oscuro #modoBoton::after{
+    content: "Mode Clear";
+    color: black;
+    background-color: beige;
+  }
+#modoBoton{
+    margin: 0;
+    padding: 10px;
+    width:10vw;
+    height: 10vh;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: beige
+}
+#modoBoton:hover{
+    
+    cursor: pointer;
+    scale: 1.1;
+
+}
+/*ANIMACION DEL BORDE EN MOVIMIENTO*/
+/* Creamos dos capas, uno en movimiento y el otro fijo */
+#modoBoton::before{
+    content: "";
+    background-image: conic-gradient(red 1deg, transparent 200deg);
+    width:100vw;
+    height: 100vh;
+    position: absolute;
+    padding:0;
+    margin: 0;
+    animation: rotate 1s linear infinite;
+}
+#modoBoton::after{
+    content: "Mode Dark";
+    width: 9.5vw;
+    height: 9vh;
+    padding: 0px;
+    margin: 0px;
+    background-color: black;
+    position: absolute;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes rotate{
+    0%{
+        transform:rotate(360deg);    
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
